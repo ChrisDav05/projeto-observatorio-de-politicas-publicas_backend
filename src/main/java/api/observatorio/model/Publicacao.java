@@ -3,7 +3,7 @@ package api.observatorio.model;
 import jakarta.persistence;
 
 @Entity
-@Table (name = "publicacoes")
+@Table(name = "publicacoes")
 public class Publicacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
