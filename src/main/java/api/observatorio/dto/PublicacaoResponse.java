@@ -1,26 +1,26 @@
-package br.ifpi.observatorio.dto;
+package br.ifpi.observatorio.dto.publicacao;
 
 import java.time.LocalDate;
 
 public record PublicacaoResponse(
 
-    Long id,
+        Long id,
 
-    String titulo,
+        String titulo,
 
-    String autor,
+        String autor,
 
-    String resumo,
+        String resumo,
 
-    String conteudo,
+        String conteudo,
 
-    String categoria,
+        String categoria,
 
-    String imagemCapa,
+        String imagem,
 
-    String arquivoPdf,
+        String pdf,
 
-    LocalDate dataPublicacao
+        LocalDate dataPublicacao
 
 ) {
 }

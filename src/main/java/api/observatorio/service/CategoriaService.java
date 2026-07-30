@@ -1,26 +1,34 @@
-package br.ifpi.observatorio.service;
-
-import br.ifpi.observatorio.model.Categoria;
-import br.ifpi.observatorio.repository.CategoriaRepository;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-
 @Service
 public class CategoriaService {
 
     private final CategoriaRepository repository;
 
-    public CategoriaService(CategoriaRepository repository) {
+    public CategoriaService(CategoriaRepository repository){
+
         this.repository = repository;
+
     }
 
-    public List<Categoria> listar() {
-        return repository.findAll();
+    public List<CategoriaResponse> listar(){
+
+        return repository.findAll()
+
+                .stream()
+
+                .map(CategoriaMapper::toResponse)
+
+                .toList();
+
     }
 
-    public Categoria salvar(Categoria categoria) {
-        return repository.save(categoria);
+    public CategoriaResponse salvar(CategoriaRequest dto){
+
+        Categoria categoria = CategoriaMapper.toEntity(dto);
+
+        categoria = repository.save(categoria);
+
+        return CategoriaMapper.toResponse(categoria);
+
     }
 
 }

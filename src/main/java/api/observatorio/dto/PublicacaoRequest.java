@@ -1,22 +1,22 @@
-package br.ifpi.observatorio.dto;
+package br.ifpi.observatorio.dto.publicacao;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record PublicacaoRequest(
 
-    @NotBlank(message = "O título é obrigatório.")
-    String titulo,
+        @NotBlank
+        String titulo,
 
-    @NotBlank(message = "O autor é obrigatório.")
-    String autor,
+        @NotBlank
+        String autor,
 
-    String resumo,
+        String resumo,
 
-    String conteudo,
+        String conteudo,
 
-    @NotNull(message = "A categoria é obrigatória.")
-    Long categoriaId
+        @NotNull
+        Long categoriaId
 
 ) {
-}   
+}       

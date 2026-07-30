@@ -1,34 +1,57 @@
-package br.ifpi.observatorio.service;
-
-import br.ifpi.observatorio.model.Publicacao;
-import br.ifpi.observatorio.repository.PublicacaoRepository;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-
 @Service
 public class PublicacaoService {
 
     private final PublicacaoRepository repository;
 
-    public PublicacaoService(PublicacaoRepository repository) {
+    private final CategoriaRepository categoriaRepository;
+
+    public PublicacaoService(
+
+            PublicacaoRepository repository,
+
+            CategoriaRepository categoriaRepository){
+
         this.repository = repository;
+        this.categoriaRepository = categoriaRepository;
+
     }
 
-    public List<Publicacao> listar() {
-        return repository.findAll();
+    public List<PublicacaoResponse> listar(){
+
+        return repository.findAll()
+
+                .stream()
+
+                .map(PublicacaoMapper::toResponse)
+
+                .toList();
+
     }
 
-    public Publicacao salvar(Publicacao publicacao) {
-        return repository.save(publicacao);
-    }
+    public PublicacaoResponse salvar(PublicacaoRequest dto){
 
-    public List<Publicacao> buscarPorTitulo(String titulo) {
-        return repository.findByTituloContainingIgnoreCase(titulo);
-    }
+        Categoria categoria = categoriaRepository.findById(dto.categoriaId())
 
-    public List<Publicacao> buscarPorCategoria(Long id) {
-        return repository.findByCategoriaId(id);
+                .orElseThrow();
+
+        Publicacao publicacao = new Publicacao();
+
+        publicacao.setTitulo(dto.titulo());
+
+        publicacao.setAutor(dto.autor());
+
+        publicacao.setResumo(dto.resumo());
+
+        publicacao.setConteudo(dto.conteudo());
+
+        publicacao.setCategoria(categoria);
+
+        publicacao.setDataPublicacao(LocalDate.now());
+
+        repository.save(publicacao);
+
+        return PublicacaoMapper.toResponse(publicacao);
+
     }
 
 }

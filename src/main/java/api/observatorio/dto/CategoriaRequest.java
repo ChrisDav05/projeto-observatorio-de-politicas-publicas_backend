@@ -1,13 +1,13 @@
-package br.ifpi.observatorio.dto;
+package br.ifpi.observatorio.dto.categoria;
 
 import jakarta.validation.constraints.NotBlank;
 
 public record CategoriaRequest(
 
-    @NotBlank(message = "O nome da categoria é obrigatório.")
-    String nome,
+        @NotBlank
+        String nome,
 
-    String descricao
+        String descricao
 
 ) {
 }
