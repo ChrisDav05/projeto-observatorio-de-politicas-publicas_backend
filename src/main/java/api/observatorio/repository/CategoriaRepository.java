@@ -1,6 +1,6 @@
-package br.ifpi.observatorio.repository;
+package api.observatorio.repository;
 
-import br.ifpi.observatorio.model.Categoria;
+import api.observatorio.model.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CategoriaRepository

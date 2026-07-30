@@ -1,7 +1,10 @@
-package br.ifpi.observatorio.controller;
+package api.observatorio.controller;
 
-import br.ifpi.observatorio.model.Categoria;
-import br.ifpi.observatorio.service.CategoriaService;
+import api.observatorio.dto.CategoriaRequest;
+import api.observatorio.dto.CategoriaResponse;
+import api.observatorio.service.CategoriaService;
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,3 +1,18 @@
+package api.observatorio.service;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import api.observatorio.dto.PublicacaoRequest;
+import api.observatorio.dto.PublicacaoResponse;
+import api.observatorio.mapper.PublicacaoMapper;
+import api.observatorio.model.Categoria;
+import api.observatorio.model.Publicacao;
+import api.observatorio.repository.CategoriaRepository;
+import api.observatorio.repository.PublicacaoRepository;
+
 @Service
 public class PublicacaoService {
 

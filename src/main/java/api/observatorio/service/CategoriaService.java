@@ -1,3 +1,14 @@
+package api.observatorio.service;
+
+import java.util.List;
+import org.springframework.stereotype.Service;
+
+import api.observatorio.dto.CategoriaRequest;
+import api.observatorio.dto.CategoriaResponse;
+import api.observatorio.mapper.CategoriaMapper;
+import api.observatorio.model.Categoria;
+import api.observatorio.repository.CategoriaRepository;
+
 @Service
 public class CategoriaService {
 

@@ -1,6 +1,6 @@
-package br.ifpi.observatorio.repository;
+package api.observatorio.repository;
 
-import br.ifpi.observatorio.model.Publicacao;
+import api.observatorio.model.Publicacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

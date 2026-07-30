@@ -1,4 +1,4 @@
-package br.ifpi.observatorio.dto.publicacao;
+package api.observatorio.dto;
 
 import java.time.LocalDate;
 

@@ -1,7 +1,7 @@
-package br.ifpi.observatorio.mapper;
+package api.observatorio.mapper;
 
-import br.ifpi.observatorio.dto.categoria.*;
-import br.ifpi.observatorio.model.Categoria;
+import api.observatorio.dto.*;
+import api.observatorio.model.Categoria;
 
 public class CategoriaMapper {
 

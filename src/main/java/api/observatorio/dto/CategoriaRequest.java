@@ -1,4 +1,4 @@
-package br.ifpi.observatorio.dto.categoria;
+package api.observatorio.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

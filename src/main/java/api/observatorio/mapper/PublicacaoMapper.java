@@ -1,7 +1,7 @@
-package br.ifpi.observatorio.mapper;
+package api.observatorio.mapper;
 
-import br.ifpi.observatorio.dto.publicacao.PublicacaoResponse;
-import br.ifpi.observatorio.model.Publicacao;
+import api.observatorio.dto.PublicacaoResponse;
+import api.observatorio.model.Publicacao;
 
 public class PublicacaoMapper {
 

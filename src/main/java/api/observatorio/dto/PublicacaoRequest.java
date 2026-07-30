@@ -1,4 +1,4 @@
-package br.ifpi.observatorio.dto.publicacao;
+package api.observatorio.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
