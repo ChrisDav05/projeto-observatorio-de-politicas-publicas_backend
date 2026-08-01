@@ -42,4 +42,10 @@ public class CategoriaService {
 
     }
 
+    public void deletar(Long id){
+
+        repository.deleteById(id);
+
+    }   
+
 }

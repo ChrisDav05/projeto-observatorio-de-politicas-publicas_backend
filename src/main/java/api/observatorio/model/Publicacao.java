@@ -10,6 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "publicacoes")
@@ -36,6 +38,7 @@ public class Publicacao {
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Categoria categoria;
 
     public Publicacao() {

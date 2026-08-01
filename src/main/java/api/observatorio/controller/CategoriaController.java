@@ -41,4 +41,12 @@ public class CategoriaController {
 
     }
 
+    @DeleteMapping("/{id}")
+    public void deletar(@PathVariable Long id){
+        
+        service.deletar(id);
+
+    }
+
+
 }
