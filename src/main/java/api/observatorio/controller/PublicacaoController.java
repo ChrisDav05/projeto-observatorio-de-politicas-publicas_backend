@@ -16,14 +16,19 @@ public class PublicacaoController {
 
     private final PublicacaoService service;
 
-    public PublicacaoController(PublicacaoService service){
+    public PublicacaoController(PublicacaoService service) {
 
         this.service = service;
 
     }
 
+    @GetMapping("/{id}")
+    public PublicacaoResponse buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
+    }
+
     @GetMapping
-    public List<PublicacaoResponse> listar(){
+    public List<PublicacaoResponse> listar() {
 
         return service.listar();
 
@@ -36,14 +41,14 @@ public class PublicacaoController {
 
             @RequestBody
 
-            PublicacaoRequest dto){
+            PublicacaoRequest dto) {
 
         return service.salvar(dto);
 
     }
 
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id){ 
+    public void deletar(@PathVariable Long id) {
 
         service.deletar(id);
 

@@ -24,14 +24,23 @@ public class PublicacaoService {
 
             PublicacaoRepository repository,
 
-            CategoriaRepository categoriaRepository){
+            CategoriaRepository categoriaRepository) {
 
         this.repository = repository;
         this.categoriaRepository = categoriaRepository;
 
     }
 
-    public List<PublicacaoResponse> listar(){
+    public PublicacaoResponse buscarPorId(Long id) {
+        // O findById já vem pronto do JpaRepository.
+        // Usamos o orElseThrow para lançar um erro caso o ID não exista no banco.
+        Publicacao publicacao = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Publicação não encontrada"));
+
+        return PublicacaoMapper.toResponse(publicacao);
+    }
+
+    public List<PublicacaoResponse> listar() {
 
         return repository.findAll()
 
@@ -43,7 +52,7 @@ public class PublicacaoService {
 
     }
 
-    public PublicacaoResponse salvar(PublicacaoRequest dto){
+    public PublicacaoResponse salvar(PublicacaoRequest dto) {
 
         Categoria categoria = categoriaRepository.findById(dto.categoriaId())
 
@@ -69,7 +78,7 @@ public class PublicacaoService {
 
     }
 
-    public void deletar(Long id){
+    public void deletar(Long id) {
 
         repository.deleteById(id);
 
