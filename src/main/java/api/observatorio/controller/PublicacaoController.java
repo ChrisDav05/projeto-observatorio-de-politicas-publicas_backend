@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/publicacoes")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://projeto-observatorio-de-politicas-p.vercel.app/"})
 public class PublicacaoController {
 
     private final PublicacaoService service;
