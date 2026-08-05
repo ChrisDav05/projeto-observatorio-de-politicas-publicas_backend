@@ -8,7 +8,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Libera para todos os endpoints da API
-                .allowedOrigins("http://localhost:4200", "https://projeto-observatorio-de-politicas.onrender.com") // Substitua pelo seu link real
+                .allowedOrigins("http://localhost:4200/") // adicionar link da vercel 
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
